@@ -9,20 +9,19 @@
 /* Begin PBXBuildFile section */
 		1127DEA32837FFA2003E35B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEA22837FFA2003E35B6 /* AppDelegate.swift */; };
 		1127DEA52837FFA2003E35B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEA42837FFA2003E35B6 /* SceneDelegate.swift */; };
-		1127DEA72837FFA2003E35B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEA62837FFA2003E35B6 /* ViewController.swift */; };
 		1127DEAA2837FFA2003E35B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1127DEA82837FFA2003E35B6 /* Main.storyboard */; };
 		1127DEAC2837FFA3003E35B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1127DEAB2837FFA3003E35B6 /* Assets.xcassets */; };
 		1127DEAF2837FFA3003E35B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1127DEAD2837FFA3003E35B6 /* LaunchScreen.storyboard */; };
 		1127DEB8283800E2003E35B6 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEB7283800E2003E35B6 /* TaskCell.swift */; };
 		1127DEBB2838018A003E35B6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEBA2838018A003E35B6 /* Task.swift */; };
 		1127DEBD283802E8003E35B6 /* TaskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEBC283802E8003E35B6 /* TaskStorage.swift */; };
+		1127DEBF28380A79003E35B6 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEBE28380A79003E35B6 /* TripsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1127DE9F2837FFA2003E35B6 /* ToDoManager__PRACTICE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoManager__PRACTICE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1127DEA22837FFA2003E35B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1127DEA42837FFA2003E35B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1127DEA62837FFA2003E35B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1127DEA92837FFA2003E35B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1127DEAB2837FFA3003E35B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1127DEAE2837FFA3003E35B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +29,7 @@
 		1127DEB7283800E2003E35B6 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		1127DEBA2838018A003E35B6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		1127DEBC283802E8003E35B6 /* TaskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorage.swift; sourceTree = "<group>"; };
+		1127DEBE28380A79003E35B6 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 				1127DEB92838017F003E35B6 /* Model */,
 				1127DEB6283800C4003E35B6 /* TaskCellClass */,
 				1127DEA22837FFA2003E35B6 /* AppDelegate.swift */,
+				1127DEBE28380A79003E35B6 /* TripsViewController.swift */,
 				1127DEA42837FFA2003E35B6 /* SceneDelegate.swift */,
-				1127DEA62837FFA2003E35B6 /* ViewController.swift */,
 				1127DEA82837FFA2003E35B6 /* Main.storyboard */,
 				1127DEAB2837FFA3003E35B6 /* Assets.xcassets */,
 				1127DEAD2837FFA3003E35B6 /* LaunchScreen.storyboard */,
@@ -164,9 +164,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1127DEB8283800E2003E35B6 /* TaskCell.swift in Sources */,
-				1127DEA72837FFA2003E35B6 /* ViewController.swift in Sources */,
 				1127DEBD283802E8003E35B6 /* TaskStorage.swift in Sources */,
 				1127DEBB2838018A003E35B6 /* Task.swift in Sources */,
+				1127DEBF28380A79003E35B6 /* TripsViewController.swift in Sources */,
 				1127DEA32837FFA2003E35B6 /* AppDelegate.swift in Sources */,
 				1127DEA52837FFA2003E35B6 /* SceneDelegate.swift in Sources */,
 			);

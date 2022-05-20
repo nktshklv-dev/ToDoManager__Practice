@@ -9,7 +9,7 @@ import Foundation
 
 
 
-enum TaskPrioirity{
+enum TaskPriority{
     case normal
     case important
 }
@@ -22,14 +22,14 @@ enum TaskStatus: Int{
 
 protocol TaskProtocol{
     var status: TaskStatus {get set}
-    var proiority: TaskPrioirity {get set}
+    var priority: TaskPriority {get set}
     var title: String {get set}
 }
 
 struct Task: TaskProtocol{
     var status: TaskStatus
     
-    var proiority: TaskPrioirity
+    var priority: TaskPriority
     
     var title: String
 }

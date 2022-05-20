@@ -8,6 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var tasksStorage = TaskStorage()
+    var tasks: [TaskPrioirity: [TaskProtocol]] = [:]
+    var sectionsForPriority: [TaskPriority] = [.normal, .important]
 
     override func viewDidLoad() {
         super.viewDidLoad()
