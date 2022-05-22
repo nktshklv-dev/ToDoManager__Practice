@@ -109,4 +109,21 @@ class TripsViewController: UITableViewController {
         tasks[taskType]![indexPath.row].status = .completed
         tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
     }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let taskType = taskPriorityInSection[indexPath.section]
+        guard let _ = tasks[taskType]?[indexPath.row] else{
+            return nil
+        }
+        
+        guard tasks[taskType]![indexPath.row].status == .completed else{
+            return nil
+        }
+        
+        let action = UIContextualAction(style: .normal, title: "Plan", handler: {
+            _,_,_ in self.tasks[taskType]![indexPath.row].status = .planned
+            tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
+        })
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 }
