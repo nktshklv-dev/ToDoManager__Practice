@@ -25,6 +25,8 @@ class TripsViewController: UITableViewController {
         super.viewDidLoad()
         loadTasks()
         
+        navigationItem.leftBarButtonItem = editButtonItem
+        
     }
     private func loadTasks(){
         taskPriorityInSection.forEach{
@@ -125,5 +127,11 @@ class TripsViewController: UITableViewController {
             tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
         })
         return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let taskType = taskPriorityInSection[indexPath.section]
+        tasks[taskType]?.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }
