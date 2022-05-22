@@ -9,9 +9,17 @@ import UIKit
 
 class TripsViewController: UITableViewController {
     
-    var tasks: [TaskPriority: [TaskProtocol]] = [:]
+    var tasks: [TaskPriority: [TaskProtocol]] = [:]{
+        didSet{
+            for (taskPriority, tasksGroup) in tasks{
+                tasks[taskPriority] = tasksGroup.sorted{
+                    task1, task2 in task1.status.rawValue < task2.status.rawValue
+                }
+            }
+        }
+    }
     var tasksStorage = TaskStorage()
-    var sectionsForPriority: [TaskPriority] = [.important, .normal ]
+    var taskPriorityInSection: [TaskPriority] = [.important, .normal ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,23 +27,13 @@ class TripsViewController: UITableViewController {
         
     }
     private func loadTasks(){
-        sectionsForPriority.forEach{
+        taskPriorityInSection.forEach{
             type in tasks[type] = []
         }
         
         tasksStorage.load().forEach{
             task in tasks[task.priority]?.append(task)
         }
-        
-        for (taskPriority, tasksGroup) in tasks{
-            tasks[taskPriority] = tasksGroup.sorted{
-                task1, task2 in task1.status.rawValue < task2.status.rawValue
-            }
-        }
-       
-            
-        
-       
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,7 +41,7 @@ class TripsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = tasks[sectionsForPriority[section]] else{
+        guard let section = tasks[taskPriorityInSection[section]] else{
             return 0
         }
         return section.count
@@ -54,7 +52,7 @@ class TripsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TaskCell
         
-        let priority = sectionsForPriority[indexPath.section]
+        let priority = taskPriorityInSection[indexPath.section]
         guard let currentTask = tasks[priority]?[indexPath.row] else{
             return cell
         }
@@ -87,12 +85,28 @@ class TripsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var title: String = ""
-        if sectionsForPriority[section] == .important{
+        if taskPriorityInSection[section] == .important{
             title = "Important"
         }
-        else if sectionsForPriority[section] == .normal{
+        else if taskPriorityInSection[section] == .normal{
             title = "Normal"
         }
         return title
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let taskType = taskPriorityInSection[indexPath.section]
+        guard let _ = tasks[taskType]?[indexPath.row] else{
+            return
+        }
+        
+        guard tasks[taskType]![indexPath.row].status == .planned else{
+            tableView.deselectRow(at: indexPath, animated: true)
+            return
+        }
+        
+        tasks[taskType]![indexPath.row].status = .completed
+        tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
     }
 }
