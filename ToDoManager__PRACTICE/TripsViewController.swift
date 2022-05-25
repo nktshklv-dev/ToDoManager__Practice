@@ -8,7 +8,7 @@
 import UIKit
 
 class TripsViewController: UITableViewController {
-    
+    //MARK: - variables
     var tasks: [TaskPriority: [TaskProtocol]] = [:]{
         didSet{
             for (taskPriority, tasksGroup) in tasks{
@@ -28,7 +28,9 @@ class TripsViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         
     }
+    //MARK: - load tasks
     private func loadTasks(){
+        //for each type creating empty array
         taskPriorityInSection.forEach{
             type in tasks[type] = []
         }
@@ -37,11 +39,11 @@ class TripsViewController: UITableViewController {
             task in tasks[task.priority]?.append(task)
         }
     }
-
+    //MARK: - number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return tasks.count
     }
-
+    //MARK: - number of rows in sections
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = tasks[taskPriorityInSection[section]] else{
             return 0
@@ -50,7 +52,7 @@ class TripsViewController: UITableViewController {
         
     }
 
-    
+    //MARK: - cell for row at
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TaskCell
         
@@ -73,7 +75,7 @@ class TripsViewController: UITableViewController {
         
         return cell
     }
-    
+    //MARK: - get icon
     private func getIcon(_ status: TaskStatus) -> String{
         var returnValue: String = ""
         if status == .completed{
@@ -85,6 +87,7 @@ class TripsViewController: UITableViewController {
         return returnValue
     }
 
+    //MARK: - title for header in section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var title: String = ""
         if taskPriorityInSection[section] == .important{
@@ -96,7 +99,7 @@ class TripsViewController: UITableViewController {
         return title
     }
     
-    
+    //MARK: - did select row at
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let taskType = taskPriorityInSection[indexPath.section]
         guard let _ = tasks[taskType]?[indexPath.row] else{
@@ -111,7 +114,7 @@ class TripsViewController: UITableViewController {
         tasks[taskType]![indexPath.row].status = .completed
         tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
     }
-    
+    //MARK: - leading swipe actions config
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let taskType = taskPriorityInSection[indexPath.section]
         guard let _ = tasks[taskType]?[indexPath.row] else{
@@ -128,17 +131,18 @@ class TripsViewController: UITableViewController {
         })
         return UISwipeActionsConfiguration(actions: [action])
     }
-    
+    //MARK: - commit function(deleting)
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let taskType = taskPriorityInSection[indexPath.section]
         tasks[taskType]?.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+    //MARK: - can move at
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+    //MARK: - move row at
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let taskTypeFrom = taskPriorityInSection[sourceIndexPath.section]
         let taskTypeTo = taskPriorityInSection[destinationIndexPath.section]
