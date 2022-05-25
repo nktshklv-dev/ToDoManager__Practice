@@ -16,6 +16,10 @@
 		1127DEBB2838018A003E35B6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEBA2838018A003E35B6 /* Task.swift */; };
 		1127DEBD283802E8003E35B6 /* TaskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEBC283802E8003E35B6 /* TaskStorage.swift */; };
 		1127DEBF28380A79003E35B6 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127DEBE28380A79003E35B6 /* TripsViewController.swift */; };
+		117994DE283EBB3A007CE5CC /* TaskEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117994DD283EBB3A007CE5CC /* TaskEditController.swift */; };
+		117994E0283EC000007CE5CC /* TaskChooseTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117994DF283EC000007CE5CC /* TaskChooseTypeController.swift */; };
+		117994E4283EC129007CE5CC /* TaskTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117994E2283EC129007CE5CC /* TaskTypeCell.swift */; };
+		117994E5283EC129007CE5CC /* TaskTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 117994E3283EC129007CE5CC /* TaskTypeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		1127DEBA2838018A003E35B6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		1127DEBC283802E8003E35B6 /* TaskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorage.swift; sourceTree = "<group>"; };
 		1127DEBE28380A79003E35B6 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
+		117994DD283EBB3A007CE5CC /* TaskEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditController.swift; sourceTree = "<group>"; };
+		117994DF283EC000007CE5CC /* TaskChooseTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChooseTypeController.swift; sourceTree = "<group>"; };
+		117994E2283EC129007CE5CC /* TaskTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeCell.swift; sourceTree = "<group>"; };
+		117994E3283EC129007CE5CC /* TaskTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTypeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +72,10 @@
 			children = (
 				1127DEB92838017F003E35B6 /* Model */,
 				1127DEB6283800C4003E35B6 /* TaskCellClass */,
-				1127DEA22837FFA2003E35B6 /* AppDelegate.swift */,
-				1127DEBE28380A79003E35B6 /* TripsViewController.swift */,
-				1127DEA42837FFA2003E35B6 /* SceneDelegate.swift */,
+				117994E1283EC03C007CE5CC /* Controllers */,
 				1127DEA82837FFA2003E35B6 /* Main.storyboard */,
+				1127DEA22837FFA2003E35B6 /* AppDelegate.swift */,
+				1127DEA42837FFA2003E35B6 /* SceneDelegate.swift */,
 				1127DEAB2837FFA3003E35B6 /* Assets.xcassets */,
 				1127DEAD2837FFA3003E35B6 /* LaunchScreen.storyboard */,
 				1127DEB02837FFA3003E35B6 /* Info.plist */,
@@ -79,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				1127DEB7283800E2003E35B6 /* TaskCell.swift */,
+				117994E2283EC129007CE5CC /* TaskTypeCell.swift */,
+				117994E3283EC129007CE5CC /* TaskTypeCell.xib */,
 			);
 			path = TaskCellClass;
 			sourceTree = "<group>";
@@ -90,6 +100,16 @@
 				1127DEBC283802E8003E35B6 /* TaskStorage.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		117994E1283EC03C007CE5CC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1127DEBE28380A79003E35B6 /* TripsViewController.swift */,
+				117994DD283EBB3A007CE5CC /* TaskEditController.swift */,
+				117994DF283EC000007CE5CC /* TaskChooseTypeController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +172,7 @@
 			files = (
 				1127DEAF2837FFA3003E35B6 /* LaunchScreen.storyboard in Resources */,
 				1127DEAC2837FFA3003E35B6 /* Assets.xcassets in Resources */,
+				117994E5283EC129007CE5CC /* TaskTypeCell.xib in Resources */,
 				1127DEAA2837FFA2003E35B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,9 +187,12 @@
 				1127DEB8283800E2003E35B6 /* TaskCell.swift in Sources */,
 				1127DEBD283802E8003E35B6 /* TaskStorage.swift in Sources */,
 				1127DEBB2838018A003E35B6 /* Task.swift in Sources */,
+				117994E0283EC000007CE5CC /* TaskChooseTypeController.swift in Sources */,
 				1127DEBF28380A79003E35B6 /* TripsViewController.swift in Sources */,
 				1127DEA32837FFA2003E35B6 /* AppDelegate.swift in Sources */,
 				1127DEA52837FFA2003E35B6 /* SceneDelegate.swift in Sources */,
+				117994DE283EBB3A007CE5CC /* TaskEditController.swift in Sources */,
+				117994E4283EC129007CE5CC /* TaskTypeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
